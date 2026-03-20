@@ -1,0 +1,47 @@
+LLM2Rec/
+├── 🔧 根目录脚本 (入口 & 流水线)
+│   ├── Baseline_inference.py          # 基线模型嵌入提取
+│   ├── extract_llm_embedding.py       # LLM2Rec 嵌入提取
+│   ├── evaluate_with_seqrec.py        # 单次评估
+│   ├── repeated_evaluate_with_seqrec.py # 多次评估(均值±标准差)
+│   ├── run_LLM2Rec_CSFT.sh           # 第一阶段训练脚本
+│   ├── run_LLM2Rec_IEM.sh            # 第二阶段训练脚本
+│   ├── script_eval_baselines.sh       # 基线评估脚本
+│   └── script_extract_and_evaluate.sh # 端到端评估脚本
+│
+├── 📦 llm2rec/                        # 🔴 LLM训练核心 (阶段1+2)
+│   ├── dataset.py                     # CSFT 数据集
+│   ├── dataset_utils.py               # IEM 数据集加载
+│   ├── run_csft.py                    # 阶段1: CSFT训练
+│   ├── run_mntp.py                    # 阶段2a: MNTP训练
+│   ├── run_unsupervised_SimCSE.py     # 阶段2b: SimCSE训练
+│   ├── train_mntp_config.json         # MNTP 配置
+│   ├── train_simcse_config.json       # SimCSE 配置
+│   └── recdata/                       # IEM 训练数据集
+│       ├── dataset.py                 # 数据样本基类
+│       ├── ItemTitleData.py           # 物品标题数据(SimCSE用)
+│       ├── RecItemData.py             # 物品对数据
+│       └── SeqRecData.py             # 序列推荐数据
+│
+├── 📊 seqrec/                         # 🔵 下游序列推荐评估框架
+│   ├── base.py                        # 模型基类
+│   ├── modules.py                     # 神经网络组件库
+│   ├── runner.py                      # 实验运行器(核心枢纽)
+│   ├── trainer.py                     # 训练+评估逻辑
+│   ├── evaluator.py                   # 指标计算(NDCG/Recall)
+│   ├── recdata.py                     # 推荐数据加载
+│   ├── utils.py                       # 配置管理
+│   ├── default.yaml                   # 默认超参
+│   └── models/                        # 推荐模型
+│       ├── Embedding2.py              # 冻结嵌入+适配器
+│       ├── SASRec/                    # Transformer推荐模型
+│       └── GRU4Rec/                   # GRU推荐模型
+│
+├── 🆚 baselines/                      # 基线文本嵌入模型
+│   ├── model.py                       # 6种基线封装
+│   └── EasyRecModel.py               # EasyRec 模型定义
+│
+└── 🛠️ utils/                          # 通用工具
+    ├── llm2vec_encoder.py             # LLM2Vec 编码器(推理用)
+    ├── datasets.py                    # 协同过滤数据工具
+    └── memory.py                      # MoCo 记忆库
