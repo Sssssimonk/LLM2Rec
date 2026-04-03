@@ -1,25 +1,48 @@
-# datasets/
-.vscode/
-data
-data/
-data_EasyRec_setting/
+# ============================================
+# 只保留数据处理脚本，其他全部忽略
+# ============================================
 
+# 忽略所有文件和文件夹（默认）
+*
+!*/
+
+# ===== 保留数据处理相关文件 =====
+
+# 1. scripts文件夹（数据处理脚本）
+!scripts/
+!scripts/*.py
+!scripts/*.sh
+!scripts/*.bat
+!scripts/*.md
+
+# 2. 数据处理相关文档
+!数据生成与使用指南.md
+!LLM2Rec论文详解文档.md
+
+# 3. 基础项目文件
+!README.md
+!.gitignore
+!requirements_data.txt
+
+# ===== 强制忽略的文件类型 =====
+**/__pycache__/
+*.pyc
+*.pyo
+*.log
+*.pdf
+*.gz
+*.ttc
+
+# ===== 强制忽略的文件夹 =====
+llm2rec/data/
+llm2rec/data_copy/
+notebooks/
 checkpoints/
 log/
 runs/
-
-__pycache__/
-*.ttc
 wandb/
 output/
-
-seqrec/ckpt/
-item_info/
-item_info
 cache/
 Results/
-
-Rebuttal/
-
-*.log
-*.pdf
+.vscode/
+.codebuddy/

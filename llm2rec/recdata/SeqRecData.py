@@ -9,12 +9,12 @@ from accelerate.logging import get_logger
 logger = get_logger(__name__, log_level="INFO")
 
 AMAZON_TRAIN_DATA_PATH_MAPPING = {
-    "Arts": "Arts_Crafts_and_Sewing/5-core/train/Arts_Crafts_and_Sewing_5_2014-9-2023-10.csv",
-    "Electronics": "Electronics/5-core/train/Electronics_5_2016-9-2023-10.csv",
-    "Home": "Home_and_Kitchen/5-core/train/Home_and_Kitchen_5_2016-9-2023-10.csv",
-    "Movies": "Movies_and_TV/5-core/train/Movies_and_TV_5_2019-9-2023-10.csv",
-    "Tools": "Tools_and_Home_Improvement/5-core/train/Tools_and_Home_Improvement_5_2016-9-2023-10.csv",
-    "Games": "Video_Games/5-core/train/Video_Games_5_1996-9-2023-10.csv",
+    "Arts": "Arts_Crafts_and_Sewing/5-core/train/Arts_Crafts_and_Sewing_5_mixed.csv",
+    "Electronics": "Electronics/5-core/train/Electronics_5_mixed.csv",
+    "Home": "Home_and_Kitchen/5-core/train/Home_and_Kitchen_5_mixed.csv",
+    "Movies": "Movies_and_TV/5-core/train/Movies_and_TV_5_mixed.csv",
+    "Tools": "Tools_and_Home_Improvement/5-core/train/Tools_and_Home_Improvement_5_mixed.csv",
+    "Games": "Video_Games/5-core/train/Video_Games_5_mixed.csv",
 }
 
 AMAZON_ITEM_INFO_MAPPING = {
